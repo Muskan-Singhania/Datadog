@@ -1,0 +1,199 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <title>Display Details</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+  <style>
+
+body {
+  background-image: url('https://media.smallbiztrends.com/2013/10/Shopping-1.png');
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+.container {
+  background-color: rgba(239, 212, 132, 0.879);
+  height: 700px;
+  max-width: 800px;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+form {
+  width: 100%;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+button {
+  margin-right: 20px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+<h1>User Details</h1>
+<form>
+  <div class="form-group">
+    <label for="displayFirstName">First Name</label>
+    <input type="text" class="form-control" id="displayFirstName" readonly>
+  </div>
+  <div class="form-group">
+    <label for="displayLastName">Last Name</label>
+    <input type="text" class="form-control" id="displayLastName" readonly>
+  </div>
+  <div class="form-group">
+    <label for="displayEmail">Email</label>
+    <input type="email" class="form-control" id="displayEmail" readonly>
+  </div>
+  <div class="form-group">
+    <label for="displayPhone">Phone</label>
+    <input type="text" class="form-control" id="displayPhone" readonly>
+  </div>
+  <div class="form-group">
+    <label for="displayUsername">Username</label>
+    <input type="text" class="form-control" id="displayUsername" readonly>
+  </div>
+  <div class="form-group">
+    <label for="displayDOB">Date of Birth</label>
+    <input type="text" class="form-control" id="displayDOB" readonly>
+  </div>
+  <button id="confirmButton" class="btn btn-success" type="button">Confirm</button>
+  <button id="resetButton" class="btn btn-danger" type="button">Reset</button>
+</form>
+  </div>
+  <script>
+document.getElementById('displayFirstName').value = localStorage.getItem('firstName');
+document.getElementById('displayLastName').value = localStorage.getItem('lastName');
+document.getElementById('displayEmail').value = localStorage.getItem('email');
+document.getElementById('displayPhone').value = localStorage.getItem('phone');
+document.getElementById('displayUsername').value = localStorage.getItem('username');
+document.getElementById('displayDOB').value = localStorage.getItem('dob');
+  </script>
+  <script>
+  document.getElementById('confirmButton').addEventListener('click', function() {
+    window.location.href = 'signup_success.html';
+  });
+  document.getElementById('resetButton').addEventListener('click', function() {
+    window.location.href = 'index.html';
+  });
+
+  </script>
+  </body>
+  </html>
+
+-->
+
+
+``html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display Details</title>
+  <link rel="stylesheet"
+href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity=
+"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+crossorigin="anonymous"> 
+
+<link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+      background-image: url('https://media.smallbiztrends.com/2013/10/Shopping-1.png');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      background-color: rgba(239, 212, 132, 0.879);
+      height: 700px;
+      max-width: 800px;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    form {
+      width: 100%;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    button {
+      margin-right: 20px;
+    }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+    <h1>User Details</h1>
+    <form>
+      <div class="form-group">
+    
+    <label for="displayFirstName">First Name</label>
+    <input type="text" class="form-control" id="displayFirstName" readonly>
+      </div>
+      <div class="form-group">
+    <label for="displayLastName">Last Name</label>
+    <input type="text" class="form-control" id="displayLastName" readonly>
+      </div>
+      <div class="form-group">
+    <label for="displayEmail">Email</label>
+    <input type="email" class="form-control" id="displayEmail" readonly>
+      </div>
+      <div class="form-group">
+    <label for="displayPhone">Phone</label>
+    <input type="text" class="form-control" id="displayPhone" readonly>
+      </div>
+      <div class="form-group">
+    <label for="displayUsername">Username</label>
+    <input type="text" class="form-control" id="displayUsername" readonly>
+      </div>
+      <div class="form-group">
+    <label for="displayDOB">Date of Birth</label>
+    <input type="text" class="form-control" id="displayDOB" readonly>
+      </div>
+      <button id="confirmButton" class="btn btn-success" type="button">Confirm</button>
+      <button id="resetButton" class="btn btn-danger" type="button">Reset</button>
+    </form>
+      </div>
+      <script>
+    var formData = JSON.parse(localStorage.getItem('formData'));
+    document.getElementById('displayFirstName').value = formData.firstName;
+    document.getElementById('displayLastName').value = formData.lastName;
+    document.getElementById('displayEmail').value = formData.email;
+    document.getElementById('displayPhone').value = formData.phone;
+    document.getElementById('displayUsername').value = formData.user;
+    document.getElementById('displayDOB').value = formData.dob;
+      </script>
+      <script>
+      document.getElementById('confirmButton').addEventListener('click', function() {
+    
+    // Send form data to the server
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:3002/sign_up', true);
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // Navigate to signup_success.html
+        window.location.href = 'signup_success.html';
+      }
+    };
+    xhr.send(localStorage.getItem('formData'));
+      });
+      
+      document.getElementById('resetButton').addEventListener('click', function() {
+    window.location.href = 'index.html';
+  });
+
+  </script>
+</body>
+</html>

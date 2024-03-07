@@ -1,0 +1,274 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+	<title> Signup Form</title>
+		
+		
+<link rel="stylesheet"
+href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity=
+"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+crossorigin="anonymous"> 
+		
+<link rel="stylesheet" type="text/css" href="style.css">
+		
+</head>
+<body style="background-image: url('https://www.allbusiness.com/asset/2017/02/online-shopping.jpg'); background-size: cover;">
+	
+	<br>
+	<br>
+	<br>
+	<div class="container" >
+		<div class="row">
+		<div class="col-md-3">
+					
+		</div>
+				
+		<div class="col-md-6 main" style="background-color: rgba(239, 212, 132, 0.879); position: relative; top: -20px;"">
+					
+			<form action="http://localhost:3002/sign_up" method="post">				 
+			<h1> Register Here! </h1>
+							
+			<input class="box" type="text" name="firstName" id="firstName"
+			placeholder="FirstName" required /><br>
+            <input class="box" type="text" name="lastName" id="lastName"
+			placeholder="Lastname" required /><br>
+							
+			<input class="box" type="email" name="email" id="email"
+			placeholder="E-Mail " required /><br>
+			<input class="box" type="number" name="phone" id="phone"
+			placeholder="Phone Number " required/><br>		
+			<input class="box" type="text" name="user" id="user"
+			placeholder="User Name " required/><br>			
+			<input class="box" type="password" name="password"
+			id="password" placeholder="Password " required/><br>
+            <input class="box" type="password" name="confirm password" id="confirmpassword"
+			placeholder="confirmpassword" required /><br>
+            <input class="box" type="text" name="dob" id="dob"
+			placeholder="Date of Birth" required /><br>
+
+						<br>
+			<input type="submit" id="submitDetails" style="background-color: rgb(224, 160, 22);"
+			name="submitDetails" value="Register" /><br>
+					
+			</form>
+					
+		</div>
+				
+				
+		<div class="col-md-3">
+		</div>
+				
+	</div>
+	</div>
+	<script>
+	document.getElementById('submitDetails').addEventListener('click', function(event) {
+  event.preventDefault();
+
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost:3002/sign_up', true);
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  xhr.onload = function() {
+if (xhr.status === 200) {
+  var data = JSON.parse(xhr.responseText);
+  localStorage.setItem('firstName', data.firstName);
+  localStorage.setItem('lastName', data.lastName);
+  localStorage.setItem('email', data.email);
+  localStorage.setItem('phone', data.phone);
+  localStorage.setItem('username', data.username);
+  localStorage.setItem('dob', data['date of birth']);
+  window.location.href = 'display_details.html';
+}
+  };
+  xhr.send(JSON.stringify({
+firstName: document.getElementById('firstName').value,
+lastName: document.getElementById('lastName').value,
+email: document.getElementById('email').value,
+phone: document.getElementById('phone').value,
+user: document.getElementById('user').value,
+    password: document.getElementById('password').value,
+    dob: document.getElementById('dob').value,
+  }));
+});
+</script>
+
+</body>
+</html>
+
+-->
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <title> Signup Form</title>
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous"> 
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="background-image: url('https://www.allbusiness.com/asset/2017/02/online-shopping.jpg'); background-size: cover;">
+  <br>
+  <br>
+  <br>
+  <div class="container" >
+    <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 main" style="background-color: rgba(239, 212, 132, 0.879); position: relative; top: -20px;"">
+      <form action="http://localhost:3002/sign_up" method="post">         
+        <h1> Register Here! </h1>
+        <input class="box" type="text" name="firstName" id="firstName"
+        placeholder="FirstName" required /><br>
+        <input class="box" type="text" name="lastName" id="lastName"
+        placeholder="Lastname" required /><br>
+        <input class="box" type="email" name="email" id="email"
+        placeholder="E-Mail " required /><br>
+        <input class="box" type="number" name="phone" id="phone"
+        placeholder="Phone Number " required/><br>    
+        <input class="box" type="text" name="user" id="user"
+        placeholder="User Name " required/><br>      
+        <input class="box" type="password" name="password"
+        id="password" placeholder="Password " required/><br>
+        <input class="box" type="password" name="confirm password" id="confirmpassword"
+        placeholder="confirmpassword" required /><br>
+        <input class="box" type="text" name="dob" id="dob"
+        placeholder="Date of Birth" required /><br>
+        <br>
+        <input type="submit" id="submitDetails" style="background-color: rgb(224, 160, 22);"
+        name="submitDetails" value="Register" /><br>
+      </form>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('submitDetails').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  var formData = {
+    firstName: document.getElementById('firstName').value,
+    lastName: document.getElementById('lastName').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    user: document.getElementById('user').value,
+    password: document.getElementById('password').value,
+    dob: document.getElementById('dob').value,
+  };
+
+  // Save form data in localStorage
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  // Navigate to display_details.html
+  window.location.href = 'display_details.html';
+});
+</script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Signup Form</title>
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous"> 
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="background-image: url('https://www.allbusiness.com/asset/2017/02/online-shopping.jpg'); background-size: cover;">
+  <br>
+  <br>
+  <br>
+  <div class="container" >
+    <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 main" style="background-color: rgba(239, 212, 132, 0.879); position: relative; top: -20px;">
+      <form id="signupForm">         
+        <h1> Register Here! </h1>
+        <input class="box" type="text" name="firstName" id="firstName"
+        placeholder="First Name" required /><br>
+        <input class="box" type="text" name="lastName" id="lastName"
+        placeholder="Last Name" required /><br>
+        <input class="box" type="email" name="email" id="email"
+        placeholder="E-Mail" required /><br>
+        <input class="box" type="tel" name="phone" id="phone"
+        placeholder="Phone Number" required/><br>    
+        <input class="box" type="text" name="user" id="user"
+        placeholder="User Name" required/><br>      
+        <input class="box" type="password" name="password"
+        id="password" placeholder="Password" required/><br>
+        <input class="box" type="password" name="confirmPassword" id="confirmPassword"
+        placeholder="Confirm Password" required /><br>
+        <input class="box" type="text" name="dob" id="dob"
+        placeholder="Date of Birth (YYYY-MM-DD)" required /><br>
+        <br>
+        <input type="submit" id="submitDetails" style="background-color: rgb(224, 160, 22);"
+        name="submitDetails" value="Register" /><br>
+      </form>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('submitDetails').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  // Validation
+  var firstName = document.getElementById('firstName').value;
+  var lastName = document.getElementById('lastName').value;
+  var email = document.getElementById('email').value;
+  var phone = document.getElementById('phone').value;
+  var user = document.getElementById('user').value;
+  var password = document.getElementById('password').value;
+  var confirmPassword = document.getElementById('confirmPassword').value;
+  var dob = document.getElementById('dob').value;
+
+  // Check if any field is empty
+  if (firstName === '' || lastName === '' || email === '' || phone === '' || user === '' || password === '' || confirmPassword === '' || dob === '') {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  // Check if password and confirm password match
+  if (password !== confirmPassword) {
+    alert('Passwords do not match.');
+    return;
+  }
+
+  // Check if phone number is valid (optional)
+  var phoneRegex = /^\d{10}$/;
+  if (!phone.match(phoneRegex)) {
+    alert('Please enter a valid phone number.');
+    return;
+  }
+   // Validate email format
+   var emailRegex = /^\S+@\S+\.\S+$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address");
+        return false;
+      }
+  
+  // Save form data in localStorage
+  var formData = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    phone: phone,
+    user: user,
+    password: password,
+    dob: dob
+  };
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  // Navigate to display_details.html
+  window.location.href = 'display_details.html';
+});
+</script>
+</body>
+</html>
